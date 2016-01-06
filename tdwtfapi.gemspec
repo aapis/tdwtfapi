@@ -5,7 +5,7 @@ require 'tdwtfapi/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "tdwtfapi"
-  spec.version       = Tdwtfapi::VERSION
+  spec.version       = TDWTF::VERSION
   spec.authors       = ["Яyan Priebe"]
   spec.email         = ["rpriebe@me.com"]
 
