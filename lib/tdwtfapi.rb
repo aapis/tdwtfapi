@@ -1,6 +1,7 @@
 require 'json'
 
 require 'tdwtfapi/version'
+require 'tdwtfapi/exceptions'
 
 require 'tdwtfapi/request'
 require 'tdwtfapi/endpoint_resource'
