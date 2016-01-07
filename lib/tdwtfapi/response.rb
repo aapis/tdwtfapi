@@ -9,7 +9,7 @@ module TDWTF
       raw = recursive_symbolize_keys(http_resp)
       
       @id = raw[:id]
-      @body = raw[:bodyhtml]
+      @body = convert_line_endings(raw[:bodyhtml])
       @summary = raw[:summaryhtml]
       @title = raw[:title]
       @author = raw[:author]
@@ -18,11 +18,13 @@ module TDWTF
       @related = {
         next: {
           title: raw[:nextarticletitle],
-          url: raw[:nextarticleurl]
+          url: raw[:nextarticleurl],
+          id: raw[:nextarticleid]
         },
         previous: {
           title: raw[:previousarticletitle],
-          url: raw[:previousarticleurl]
+          url: raw[:previousarticleurl],
+          id: raw[:previousarticleid]
         }
       }
     end
@@ -44,6 +46,10 @@ module TDWTF
       else
         h
       end
+    end
+
+    def convert_line_endings(str)
+      str.gsub(/\r\n/, '<br />')
     end
 
   end
