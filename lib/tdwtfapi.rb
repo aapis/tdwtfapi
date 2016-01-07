@@ -1,10 +1,16 @@
-require "tdwtfapi/version"
+require 'json'
 
-require 'tdwtfapi/articles'
-require 'tdwtfapi/author'
-require 'tdwtfapi/series'
 require 'tdwtfapi/version'
 
+require 'tdwtfapi/request'
+require 'tdwtfapi/endpoint_resource'
+
+require 'tdwtfapi/models/articles'
+require 'tdwtfapi/models/author'
+require 'tdwtfapi/models/series'
+
 module TDWTF
-  # Your code goes here...
+  def self.base_url
+    'http://thedailywtf.com/api/'
+  end
 end
