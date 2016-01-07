@@ -19,7 +19,7 @@ module TDWTF
     #
     # since 0.1.0
     def by_date(slug, month, year)
-      raise "Invalid year argument provided, must be greater than 1999" if year < 1999
+      raise InvalidYearException, "Invalid year argument provided, must be greater than 1999" if year < 1999
 
       request("#{ENDPOINT_PREFIX}/#{slug}/#{year}/#{month}")
     end
