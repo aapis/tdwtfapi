@@ -9,6 +9,8 @@ module TDWTF
     # since 0.1.0
     def initialize(http_resp)
       raw = recursive_symbolize_keys(http_resp)
+
+      raise APIException, "#{raw[:status]}" if raw[:status]
       
       @id = raw[:id]
       @body = convert_line_endings(raw[:bodyhtml])
