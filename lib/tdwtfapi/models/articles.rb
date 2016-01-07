@@ -18,9 +18,7 @@ module TDWTF
     #
     # since 0.1.0
     def by_date(month, year)
-      if year < 1999
-        raise "Invalid year argument provided, must be greater than 1999"
-      end
+      raise "Invalid year argument provided, must be greater than 1999" if year < 1999
 
       request("#{ENDPOINT_PREFIX}/#{year}/#{month}")
     end
@@ -37,6 +35,8 @@ module TDWTF
       endpoint = "#{ENDPOINT_PREFIX}/recent"
 
       if num
+        raise "Count cannot be greater than 100" if num > 100
+
         endpoint = "#{ENDPOINT_PREFIX}/recent/#{num}"
       end
 
