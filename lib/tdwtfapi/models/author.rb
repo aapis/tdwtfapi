@@ -1,7 +1,13 @@
 module TDWTF
-  class Series < EndpointResource
+  class Author < EndpointResource
 
-    ENDPOINT_PREFIX = :series
+    ENDPOINT_PREFIX = :author
+
+    #
+    # since 0.1.0
+    def list
+      
+    end
 
     #
     # since 0.1.0
@@ -15,13 +21,6 @@ module TDWTF
       end
 
       request(endpoint)
-    end
-    #
-    # since 0.1.0
-    def by_date(slug, month, year)
-      raise "Invalid year argument provided, must be greater than 1999" if year < 1999
-
-      request("#{ENDPOINT_PREFIX}/#{slug}/#{year}/#{month}")
     end
 
   end
