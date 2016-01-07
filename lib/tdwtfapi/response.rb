@@ -5,6 +5,8 @@ module TDWTF
 
     attr_accessor :raw, :body, :summary, :title, :author, :date, :id, :related, :series
 
+    #
+    # since 0.1.0
     def initialize(http_resp)
       raw = recursive_symbolize_keys(http_resp)
       
@@ -48,6 +50,8 @@ module TDWTF
       end
     end
 
+    #
+    # since 0.1.0
     def convert_line_endings(str)
       str.gsub(/\r\n/, '<br />')
     end

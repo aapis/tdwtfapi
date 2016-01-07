@@ -10,7 +10,11 @@ require 'tdwtfapi/models/author'
 require 'tdwtfapi/models/series'
 
 module TDWTF
+
+  #
+  # since 0.1.0
   def self.base_url
     'http://thedailywtf.com/api/'
   end
+
 end
