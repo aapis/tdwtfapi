@@ -20,13 +20,15 @@ module TDWTF
     def by_month(month, year)
       raise InvalidYearException, "Invalid year argument provided, must be greater than 1999" if year < 1999
 
-      request("#{ENDPOINT_PREFIX}/#{year}/#{month}")
+      resp = request("#{ENDPOINT_PREFIX}/#{year}/#{month}")
+      resp.results
     end
 
     #
     # since 0.1.0
     def random
-      request("#{ENDPOINT_PREFIX}/random")
+      resp = request("#{ENDPOINT_PREFIX}/random")
+      resp.results
     end
 
     #
@@ -40,7 +42,8 @@ module TDWTF
         endpoint = "#{ENDPOINT_PREFIX}/recent/#{num}"
       end
 
-      request(endpoint)
+      resp = request(endpoint)
+      resp.results
     end
 
   end
